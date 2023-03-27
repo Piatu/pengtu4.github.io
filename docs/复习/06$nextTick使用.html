@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.4/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>我是DOM节点</h1>
+        <p>我是DOM节点</p>
+        <ul>
+            <li v-for="(item,index) in arr" :key="index" ref="cur">{{item}}</li>
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+    //创建VM
+    let VM = new Vue({
+        el: '#app',
+        data: {
+            arr: []
+        },
+        //组件挂载完毕执行一次----可以获取DOM节点
+        mounted() {
+            //比容服务器的数据两秒之后才返回
+            setTimeout(() => {
+                this.arr = ["吃饭", '睡觉', '打豆豆']
+            }, 2000);
+            
+        },
+        watch:{
+            //监听Arr数据的变化,数据变化了,能否获取动态li节点
+            arr(){
+               //监听Arr属性值的变化,只能保证数据确实发生变化了。但是你没办法保证DOM节点v-for遍历完毕
+               this.$nextTick(()=>{
+                   console.log(this.$refs.cur);
+               })
+            }
+        }
+    });
+
+    //$nextTick:
+    //在(修改数据)之后立即使用这个方法,获取(更新后的 DOM)。
+</script>

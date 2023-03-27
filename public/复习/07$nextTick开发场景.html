@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.4/vue.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 600px;
+            height: 400px;
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <button @click="handler">点击我切换结构</button>
+        <div class="box" v-if="show" ref="cur"></div>
+    </div>
+</body>
+
+</html>
+<script>
+    //在(修改数据)之后立即使用这个方法,获取(更新后的 DOM)。
+    let VM = new Vue({
+        el: '.app',
+        data: {
+            show: false
+        },
+        mounted() {
+            //组件挂载完毕,本身就没有div节点，没办法获取到 
+            // console.log(this.$refs.cur);
+        },
+        methods: {
+            handler() {
+                //当用户点击button按钮的时候,底下的代码会立即执行的。【结构:进行下一次渲染,下一次渲染一个div,不可能立马渲染完毕】
+                //获取不到div
+               this.show = !this.show;
+               this.$nextTick(()=>{
+                    console.log(this.$refs.cur);
+               })
+            }
+        },
+    });
+
+    //第一问:mounted钩子能够获取到div.box
+</script>

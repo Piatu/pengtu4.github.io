@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+     //了解设计模式:发布订阅、单例模式、工厂模式等等!!!!
+     let userId;
+
+     function SET_USERID (){
+        //本地存储有没有用户信息
+         userId = localStorage.getItem('USERID');
+         //本地存储没有用户信息，生成一份存储
+         if(!userId){
+             userId = Math.random();
+             localStorage.setItem("USERID",userId);
+         }
+         return userId;
+     }
+
+   console.log(SET_USERID());
+
+
+
+</script>

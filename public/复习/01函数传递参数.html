@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //组件，实质实质VueComponent构造函数
+    //组件中的this是VC（VueComponent类的实例，称之为VC）
+    //VC:this.$router,属性值VueRouter类的实例，VueRouter原型对象push|replace方法
+    //组件:实质是VueComponent构造函数,为什么下面Header组件打印并非是VueComponent构造函数,
+    //因为Header组件暴露的配置项(JS),并非暴露Vue.extend()[返回VueComponent构造函数]。用的是简写方式
+
+    //构造函数
+    function VueRouter() {
+
+    }
+
+    //原型对象push方法
+    VueRouter.prototype.push = function (location, resolve, reject) {
+        console.log(location);
+        //当前函数this是谁?
+        return new Promise((resolve, reject) => {
+
+        });
+    }
+
+    //模拟VC身上的$router属性
+    let $router = new VueRouter;
+    //因为$router.push,VueRouter类的实例调用的，因此this即为VueRouter实例!!!
+    let result = $router.push({ name: 'search', query: { b: 2 }, params: { c: 3 } }, () => { }, () => { });
+
+
+
+
+</script>

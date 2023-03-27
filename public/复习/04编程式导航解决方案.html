@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        <h2>我是H2标题</h2>
+        <ul>
+            <li><a data-categoryName="吃饭" data-category1Id='1'>我是一级分类的a标签</a></li>
+        </ul>
+        <p>么么哒</p>
+        <div>
+            <p>
+                <a data-categoryName="睡觉" data-category2Id='2'>二级分类的a标签</a>
+            </p>
+            <p>
+                <a data-categoryName="打豆豆" data-category3Id='3'>我是三级分类的a标签</a>
+                <a data-categoryName="打豆豆" data-category3Id='3'>我是三级分类的a标签</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    //事件委派
+    let box = document.querySelector('#box');
+    //自定义属性:data-categoryName,目的是区分你点击的是不是a
+    //data-category1Id,确定点击一级分类a   data-category2Id,确定点击二级分类a     data-category3Id,确定点击三级分类a  
+    box.onclick = function (event) {
+        //获取触发事件的节点
+        let targetNode = event.target;
+        //获取节点的自定义属性与属性值 [获取自定义属性的名字都是小写的要注意]
+        //dataset:节点标签的一个属性,可以获取节点的自定义属性与属性值【返回的是一个对象】
+        //而且还需要注意:对象的K之包含data-后面的东西【都是小写的】
+        let { categoryname, category1id, category2id, category3id } = targetNode.dataset;
+        //能否确定点击的是a
+        if (categoryname) {
+            //代表你点击的是a,而且还是一级分类的a
+            if (category1id) {
+                console.log('1');
+            } else if (category2id) {
+                console.log('2');
+            } else {
+                console.log('3');
+            }
+        }
+    }
+</script>

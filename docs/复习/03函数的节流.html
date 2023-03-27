@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.js"></script>
+</head>
+
+<body>
+    <button>+1</button>
+     <span>0</span>
+    <button>-1</button>
+</body>
+
+</html>
+<script>
+    //节流[throttle]: 在规定的间隔时间范围内不会重复触发回调，只有大于这个时间间隔才会触发回调，把频繁触发变为少量触发
+    let count = 0;
+    //获取加按钮
+    let btn1 = document.querySelectorAll('button')[0];
+    btn1.onclick =  _.throttle(function(){
+         console.log('当亲事件回调进行节流,一秒之内只能触发一次，给浏览器流出充裕的时间解析代码');
+         count++;
+         document.querySelector('span').innerHTML = count;
+    },200);
+
+    //防抖:也就是说如果连续快速的触发只会执行一次
+    //节流：把用户频繁的操作变为少量的操作，让浏览器流出充裕时间解析代码
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //Object.assignES6新增的方法,主要的作用是将对个对象合并.
+    let searchParams = { cateogryName: '', c1Id: '', c2Id: '', c3Id: '' };
+    let query = { categoryName: '手机', c1Id: 2 ,erha:"erha"};
+    //这个方法:可以讲两个对象合并,收到印象的是第一个对象,第二个对象没有任何影响!!!
+    Object.assign(searchParams,query);
+    console.log(searchParams);
+</script>
