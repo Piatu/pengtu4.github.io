@@ -9,7 +9,7 @@ module.exports = defineConfig({
   publicPath: './',  // 基本路径
   indexPath: './index.html',
   devServer: {
-    // 小写的 proxy, 别被代码提示带偏
+
     proxy: {
       // 自定义代理名,请求时使用
       '/api': {
