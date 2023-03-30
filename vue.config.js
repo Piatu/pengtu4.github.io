@@ -4,10 +4,10 @@ const {
 module.exports = defineConfig({
   transpileDependencies: true,
   lintOnSave: false,
-  outputDir: './docs',
-  assetsDir: 'static',
-  publicPath: './',  // 基本路径
-  indexPath: './index.html',
+  // outputDir: './docs',
+  // assetsDir: 'static',
+  // publicPath: './',  // 基本路径
+  // indexPath: './index.html',
   devServer: {
 
     proxy: {
@@ -16,7 +16,7 @@ module.exports = defineConfig({
         // /dy 要映射到 target 域名
         // 要跨域到的网址
         //设置服务器打开的域名
-        host: 'piatu.github.io/pengtu4.github.io/',
+        // host: 'piatu.github.io/pengtu4.github.io/',
         target: 'http://gmall-h5-api.atguigu.cn', //结尾没有 / , 千万别多写
         changeOrigin: true, //关键点: 代表需要跨域
         // pathRewrite: {
