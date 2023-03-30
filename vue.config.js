@@ -12,10 +12,10 @@ module.exports = defineConfig({
   //让浏览器自动打开
   devServer: {
     open: true,
-    //设置服务器打开的域名
-    host: '127.0.0.1',
+   //设置服务器打开的域名
+    host: 'piatu.github.io/pengtu4.github.io/',
     //设置服务器打开的端口号
-    port: 8081,
+//     port: 8081,
     //配置代理跨域
     proxy: {
       '/api': {
